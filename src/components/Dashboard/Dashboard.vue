@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Line } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,6 +8,7 @@ import {
   PointElement,
   LineElement,
   Title,
+  BarElement,
   Tooltip,
   Legend,
   Filler
@@ -15,9 +16,11 @@ import {
 import PopularTrainingCard from './PopularTrainingCard.vue'
 import StatCard from './StatCard.vue'
 import { useUserStore } from '../../stores/user'
+import SearchHeader from './SearchHeader.vue'
+import { BsBarChartFill, BxSolidDownload, ChRefresh, TaBrandCashapp} from '@kalimahapps/vue-icons'
 
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler)
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler, BarElement)
 
 const stats = ref([
   { label: 'Lucro Total', value: 'R$ 128.591', increase: '24%' },
@@ -32,20 +35,16 @@ const chartData = {
     {
       label: 'Total arrecadado',
       data: [5000, 12000, 4000, 6000, 8000, 5000, 15000, 10000, 9000, 4000, 5000, 3000, 4000, 5000, 12000],
-      borderColor: '#10B981',
-      backgroundColor: 'rgba(16, 185, 129, 0.1)',
-      fill: true,
-      tension: 0.4,
-      pointRadius: 0
+      backgroundColor: '#059669', // verde escuro
+      stack: 'stack1',
+      borderRadius: 6
     },
     {
       label: 'Total retirado',
       data: [3000, 8000, 2000, 4000, 6000, 3000, 10000, 7000, 6000, 2000, 3000, 2000, 3000, 3000, 8000],
-      borderColor: '#6EE7B7',
-      backgroundColor: 'rgba(110, 231, 183, 0.1)',
-      fill: true,
-      tension: 0.4,
-      pointRadius: 0
+      backgroundColor: '#6EE7B7', // verde claro
+      stack: 'stack1',
+      borderRadius: 6
     }
   ]
 }
@@ -54,11 +53,16 @@ const chartOptions = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
-    x: { grid: { display: false } },
+    x: {
+      stacked: true,
+      grid: { display: false },
+      ticks: { color: '#374151' } // opcional
+    },
     y: {
+      stacked: true,
       beginAtZero: true,
       grid: { color: '#f3f4f6' },
-      ticks: { stepSize: 5000 }
+      ticks: { stepSize: 5000, color: '#374151' }
     }
   },
   plugins: {
@@ -69,12 +73,11 @@ const chartOptions = {
       labels: {
         boxWidth: 8,
         usePointStyle: true,
-        pointStyle: 'circle'
+        pointStyle: 'rectRounded'
       }
     }
   }
 }
-
 const popularTrainings = ref([
   { name: 'Docker', users: '38', duration: '2h', enrolled: '105' },
   { name: 'GitLab', users: '42', duration: '3h', enrolled: '98' },
@@ -87,17 +90,20 @@ const userStore = useUserStore()
 
 <template>
   <div class="flex-1 p-4 md:p-8">
+    <SearchHeader title="Relatório" :icon="BsBarChartFill" @search="filter=>console.log('filter', filter)"/>
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
       <div>
         <h1 class="text-2xl font-bold">Bem vindo, {{ userStore.name }}!</h1>
         <p class="text-gray-600">Aqui ficam todas estatísticas da sua conta!</p>
       </div>
-      <div class="flex flex-col sm:flex-row gap-2">
-        <button class="px-4 py-2 bg-green-100 text-green-600 rounded-lg w-full sm:w-auto">
-          Baixar relatório
-        </button>
-        <button class="px-4 py-2 bg-green-500 text-white rounded-lg w-full sm:w-auto">
-          Atualizar
+      <div class="flex flex-col sm:flex-row gap-2 items-center">
+        <button class="px-4 py-2 bg-green-200 text-green-700 rounded-lg w-full sm:w-auto hover:scale-105 flex items-center space-x-2">
+          <BxSolidDownload/>
+          <span>Baixar relatório</span>
+          </button>
+        <button class="px-4 py-2 bg-green-200 text-green-700  rounded-lg w-full sm:w-auto hover:scale-105 flex items-center space-x-2">
+          <ChRefresh/>
+          <span>Atualizar</span>
         </button>
       </div>
     </div>
@@ -113,9 +119,9 @@ const userStore = useUserStore()
     </div>
 
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h2 class="text-xl font-semibold pb-5">Total Movimentado</h2>
-      <div class="h-[300px]">
-        <Line :data="chartData" :options="chartOptions" />
+      <h2 class="text-xl font-semibold pb-5 flex items-center space-x-2"><span class="bg-green-200 p-1 text-green-700 rounded-md "><TaBrandCashapp/></span><span>Total Movimentado</span></h2>
+      <div class="min-h-[300px]">
+        <Bar :data="chartData" :options="chartOptions" />
       </div>
     </div>
 
