@@ -32,7 +32,7 @@ const showSidebar = ref(false)
 
 <template>
 <button
-  class="md:hidden fixed top-16 right-4 z-50 p-2 rounded"
+  class="md:hidden absolute top-0 right-4 z-50 p-2 rounded"
   :class="[showSidebar ? 'text-red-500': 'bg-green-600 text-white ']"
   @click="showSidebar = !showSidebar"
 >

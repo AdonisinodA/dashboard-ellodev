@@ -5,10 +5,10 @@
         <span>{{ props.title }}</span>
       </div>
   
-      <div class="flex items-center bg-white rounded overflow-hidden border border-gray-300">
+      <div class="flex items-center bg-white rounded overflow-hidden border border-gray-300 w-96">
         <input
           type="text"
-          class="px-3 py-1 text-sm focus:outline-none"
+          class="px-3 py-1 text-sm focus:outline-none w-full"
           placeholder="Pesquisar"
           v-model="searchQuery"
           @input="emitSearch"

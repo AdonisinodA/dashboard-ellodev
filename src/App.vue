@@ -7,9 +7,7 @@ import Header from './components/Header/HeaderUser.vue';
 <template>
   <Header/>
   <div class="flex min-h-screen bg-gray-100 w-screen">
-    <div class="md:w-[15vw] w-screen">
       <Sidebar />
-    </div>
     <div class="md:w-[85vw] w-screen"> 
       <Dashboard />
     </div>

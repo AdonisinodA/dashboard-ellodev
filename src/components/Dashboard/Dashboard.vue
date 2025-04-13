@@ -17,17 +17,17 @@ import PopularTrainingCard from './PopularTrainingCard.vue'
 import StatCard from './StatCard.vue'
 import { useUserStore } from '../../stores/user'
 import SearchHeader from './SearchHeader.vue'
-import { BsBarChartFill, BxSolidDownload, ChRefresh, DeFigmaOriginal, DeGitlabOriginal, DeWebflowOriginal, TaBrandCashapp, VsFileTypeDocker2} from '@kalimahapps/vue-icons'
+import { BsBarChartFill, BxDollar, BxSolidDownload, ChRefresh, DeFigmaOriginal, DeGitlabOriginal, DeWebflowOriginal, HeFilledICertificatePaper, LaBalanceScaleRightSolid, LuUsers, TaBrandCashapp, VsFileTypeDocker2} from '@kalimahapps/vue-icons'
 import PercentageUp from '../PercentageBadge/PercentageUp.vue'
 
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler, BarElement)
 
 const stats = ref([
-  { label: 'Lucro Total', value: 'R$ 128.591', increase: '24' },
-  { label: 'Lucro Médio', value: 'R$ 1352', increase: '35' },
-  { label: 'Total Membros', value: '826', increase: '8' },
-  { label: 'Total de treinamentos', value: '18', increase: '5' }
+  { label: 'Lucro Total', value: 'R$ 128.591', increase: '24', icon:BxDollar },
+  { label: 'Lucro Médio', value: 'R$ 1352', increase: '35' ,icon:LaBalanceScaleRightSolid },
+  { label: 'Total Membros', value: '826', increase: '8' , icon:LuUsers},
+  { label: 'Total de treinamentos', value: '18', increase: '5', icon:HeFilledICertificatePaper }
 ])
 
 const chartData = {
@@ -128,6 +128,7 @@ const userStore = useUserStore()
         :key="stat.label"
         :label="stat.label"
         :value="stat.value"
+        :icon="stat.icon"
         :increase="stat.increase"
       />
     </div>
