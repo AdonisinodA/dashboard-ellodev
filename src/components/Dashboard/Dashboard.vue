@@ -17,7 +17,11 @@ import PopularTrainingCard from './PopularTrainingCard.vue'
 import StatCard from './StatCard.vue'
 import { useUserStore } from '../../stores/user'
 import SearchHeader from './SearchHeader.vue'
-import { BsBarChartFill, BxDollar, BxSolidDownload, ChRefresh, DeFigmaOriginal, DeGitlabOriginal, DeWebflowOriginal, HeFilledICertificatePaper, LaBalanceScaleRightSolid, LuUsers, TaBrandCashapp, VsFileTypeDocker2} from '@kalimahapps/vue-icons'
+import { BsBarChartFill, BxDollar, BxSolidDownload, 
+  ChRefresh, DeFigmaOriginal, DeGitlabOriginal, 
+  DeWebflowOriginal, HeFilledICertificatePaper, 
+  LaBalanceScaleRightSolid, LuUsers, 
+  TaBrandCashapp, VsFileTypeDocker2} from '@kalimahapps/vue-icons'
 import PercentageUp from '../PercentageBadge/PercentageUp.vue'
 
 

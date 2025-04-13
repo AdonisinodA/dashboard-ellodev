@@ -1,6 +1,11 @@
 <template>
   <div class=" w-full mx-auto px-4">
-    <h2 class="text-lg font-semibold text-gray-800 mb-4">Treinamentos Populares</h2>
+    <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center"> 
+      <FaRankingStar class="text-green-700"/>
+      <span>
+        Treinamentos Populares
+      </span>
+    </h2>
 
     <div class="relative overflow-hidden">
       <div
@@ -51,7 +56,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
+import { FaRankingStar } from '@kalimahapps/vue-icons';
 interface CarouselItem {
   name: string;
   description: string;
