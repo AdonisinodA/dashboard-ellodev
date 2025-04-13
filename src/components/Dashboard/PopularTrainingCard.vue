@@ -10,7 +10,7 @@
     <div class="relative overflow-hidden">
       <div
         ref="carousel"
-        class="flex overflow-x-scroll scrollbar-hide snap-x snap-mandatory space-x-4 pb-4"
+        class="flex overflow-x-scroll scrollbar-hide snap-x snap-mandatory space-x-4 pb-4 px-4"
       >
         <div
           v-for="(item, index) in props.items"
@@ -34,7 +34,9 @@
         </div>
       </div>
 
-      <button
+    
+    </div>
+    <button
         @click="scrollLeft"
         class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
       >
@@ -50,8 +52,8 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </button>
-    </div>
   </div>
+  
 </template>
 
 <script setup lang="ts">
