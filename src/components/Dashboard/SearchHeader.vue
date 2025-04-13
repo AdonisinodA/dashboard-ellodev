@@ -1,11 +1,11 @@
 <template>
-    <div class="flex items-center justify-between bg-gray-100 p-3 rounded">
+    <div class="flex items-center justify-between bg-gray-100 p-3 rounded space-x-2">
       <div class="text-sm text-gray-700 font-medium flex items-center space-x-2">
         <component :is="props.icon" class="w-4 h-4 text-gray-500" v-if="props.icon" />
         <span>{{ props.title }}</span>
       </div>
   
-      <div class="flex items-center bg-white rounded overflow-hidden border border-gray-300 w-96">
+      <div class="flex items-center bg-white rounded overflow-hidden border border-gray-300 w-96 ">
         <input
           type="text"
           class="px-3 py-1 text-sm focus:outline-none w-full"
