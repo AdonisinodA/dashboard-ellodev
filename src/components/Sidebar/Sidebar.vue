@@ -1,38 +1,38 @@
 <script setup lang="ts">
 import {
-  BxHomeAlt,
-  BsChatSquare,
-  BsFileText,
-  AkCreditCard,
+  AnFilledHome,
+  HeFilledGroupDiscussionMeetingx3,
+  BsFileTextFill,
+  BsCreditCardFill,
   BxLinkAlt,
-  CaChartBar,
-  BxEditAlt,
-  BxHelpCircle,
+  BsBarChartFill,
+  BsEnvelopeFill,
+  MdRoundContactSupport,
   MiSolidDoorExit
 } from '@kalimahapps/vue-icons'
 
 import { ref } from 'vue'
-import { useUserStore } from '../../stores/user'
+import UserCard from './UserCard.vue'
 
-const userStore = useUserStore()
 
 const showSidebar = ref(false)
 
-const menuItems = [
-  { icon: BxHomeAlt, text: 'Início', active: true },
-  { icon: BsChatSquare, text: 'Meus treinamentos' },
-  { icon: BsFileText, text: 'Faturas' },
-  { icon: AkCreditCard, text: 'Assinaturas' },
+ const menuItems = [
+  { icon: AnFilledHome, text: 'Início',  },
+  { icon: HeFilledGroupDiscussionMeetingx3, text: 'Meus treinamentos' },
+  { icon: BsFileTextFill, text: 'Faturas' },
+  { icon: BsCreditCardFill, text: 'Assinaturas' },
   { icon: BxLinkAlt, text: 'Integrações' },
-  { icon: CaChartBar, text: 'Relatório' },
-  { icon: BxEditAlt, text: 'Templates' },
-  { icon: BxHelpCircle, text: 'Suporte' }
+  { icon: BsBarChartFill, text: 'Relatório' , active: true},
+  { icon: BsEnvelopeFill, text: 'Templates' },
+  { icon: MdRoundContactSupport, text: 'Suporte' }
 ]
+
 </script>
 
 <template>
 <button
-  class="md:hidden fixed top-4 right-4 z-50 p-2 rounded"
+  class="md:hidden fixed top-16 right-4 z-50 p-2 rounded"
   :class="[showSidebar ? 'text-red-500': 'bg-green-600 text-white ']"
   @click="showSidebar = !showSidebar"
 >
@@ -49,31 +49,25 @@ const menuItems = [
     'md:relative md:translate-x-0 md:flex'
   ]"
 >
-    <div class="flex items-center space-x-4 mb-8">
-      <img
-        src="https://thumbs.dreamstime.com/b/%C3%ADcone-de-espa%C3%A7o-reservado-para-fotos-do-avatar-em-branco-ilustra%C3%A7%C3%A3o-vetorial-desenho-imagem-perfil-269268516.jpg"
-        class="rounded-full w-12 h-12 object-cover"
-        alt="Profile"
-      />
-      <div class="hidden md:block">
-        <h2 class="font-semibold">{{ userStore.name }}</h2>
-        <span class="text-sm text-green-500">{{ userStore.role }}</span>
-      </div>
-    </div>
+    <UserCard/>
 
     <nav class="flex-1">
       <ul class="space-y-2">
         <li
-          v-for="item in menuItems"
-          :key="item.text"
-          :class="[
-            'flex items-center space-x-2 p-2 rounded hover:bg-gray-200 cursor-pointer',
-            item.active ? 'bg-green-50 text-green-600' : ''
-          ]"
-        >
-          <component :is="item.icon" class="w-5 h-5" />
-          <span>{{ item.text }}</span>
-        </li>
+      v-for="item in menuItems"
+      :key="item.text"
+      :class="[
+        'flex items-center space-x-2 p-2 rounded hover:bg-green-300 cursor-pointer transition-all relative',
+        item.active
+          ? 'bg-green-200 text-green-600 font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-green-600 before:rounded-r'
+          : 'text-gray-700'
+      ]"
+    >
+      <component :is="item.icon" class="w-5 h-5" />
+      <span>{{ item.text }}</span>
+    </li>
+
+
       </ul>
     </nav>
 
