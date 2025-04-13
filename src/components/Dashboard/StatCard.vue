@@ -4,14 +4,22 @@
         <div>
           <p class="text-gray-600">{{ label }}</p>
           <p class="text-2xl font-bold">{{ value }}</p>
+        
+
         </div>
-        <span class="text-green-500">+{{ increase }}</span>
+        <PercentageUp :value="Number(increase)"/>
       </div>
     </div>
   </template>
   
   <script setup lang="ts">
-  defineProps<{
+import PercentageUp from '../PercentageBadge/PercentageUp.vue';
+
+  const {
+    increase,
+    label,
+    value
+  } = defineProps<{
     label: string
     value: string
     increase: string

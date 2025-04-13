@@ -17,16 +17,17 @@ import PopularTrainingCard from './PopularTrainingCard.vue'
 import StatCard from './StatCard.vue'
 import { useUserStore } from '../../stores/user'
 import SearchHeader from './SearchHeader.vue'
-import { BsBarChartFill, BxSolidDownload, ChRefresh, TaBrandCashapp} from '@kalimahapps/vue-icons'
+import { BsBarChartFill, BxSolidDownload, ChRefresh, DeFigmaOriginal, DeGitlabOriginal, DeWebflowOriginal, TaBrandCashapp, VsFileTypeDocker2} from '@kalimahapps/vue-icons'
+import PercentageUp from '../PercentageBadge/PercentageUp.vue'
 
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler, BarElement)
 
 const stats = ref([
-  { label: 'Lucro Total', value: 'R$ 128.591', increase: '24%' },
-  { label: 'Lucro Médio', value: 'R$ 1352', increase: '35%' },
-  { label: 'Total Membros', value: '826', increase: '8%' },
-  { label: 'Total de treinamentos', value: '18', increase: '5%' }
+  { label: 'Lucro Total', value: 'R$ 128.591', increase: '24' },
+  { label: 'Lucro Médio', value: 'R$ 1352', increase: '35' },
+  { label: 'Total Membros', value: '826', increase: '8' },
+  { label: 'Total de treinamentos', value: '18', increase: '5' }
 ])
 
 const chartData = {
@@ -78,18 +79,31 @@ const chartOptions = {
     }
   }
 }
-const popularTrainings = ref([
-  { name: 'Docker', users: '38', duration: '2h', enrolled: '105' },
-  { name: 'GitLab', users: '42', duration: '3h', enrolled: '98' },
-  { name: 'C#', users: '45', duration: '4h', enrolled: '120' },
-  { name: 'Webflow', users: '35', duration: '2h', enrolled: '89' },
-  { name: 'Figma', users: '40', duration: '3h', enrolled: '95' }
-])
+
+const items = ref([
+  { name: 'Docker', description: '29 Aulas • 4h 30min', badge1: '4.8', badge2: '1250 avaliações', icon: VsFileTypeDocker2},
+  { name: 'GitLab', description: '42 Aulas • 5h 20min', badge1: '4.7', badge2: '1020 avaliações', icon: DeGitlabOriginal},
+  { name: 'WebFlow', description: '64 Aulas • 10h 30min', badge1: '4.8', badge2: '1753 avaliações', icon: DeWebflowOriginal},
+  { name: 'Figma', description: '51 Aulas • 8h 20min', badge1: '4.9', badge2: '1598 avaliações', icon: DeFigmaOriginal},
+  { name: 'Docker', description: '29 Aulas • 4h 30min', badge1: '4.8', badge2: '1250 avaliações', icon: VsFileTypeDocker2},
+  { name: 'GitLab', description: '42 Aulas • 5h 20min', badge1: '4.7', badge2: '1020 avaliações', icon: DeGitlabOriginal},
+  { name: 'WebFlow', description: '64 Aulas • 10h 30min', badge1: '4.8', badge2: '1753 avaliações', icon: DeWebflowOriginal},
+  { name: 'Figma', description: '51 Aulas • 8h 20min', badge1: '4.9', badge2: '1598 avaliações', icon: DeFigmaOriginal},
+  { name: 'Docker', description: '29 Aulas • 4h 30min', badge1: '4.8', badge2: '1250 avaliações', icon: VsFileTypeDocker2},
+  { name: 'GitLab', description: '42 Aulas • 5h 20min', badge1: '4.7', badge2: '1020 avaliações', icon: DeGitlabOriginal},
+  { name: 'WebFlow', description: '64 Aulas • 10h 30min', badge1: '4.8', badge2: '1753 avaliações', icon: DeWebflowOriginal},
+  { name: 'Figma', description: '51 Aulas • 8h 20min', badge1: '4.9', badge2: '1598 avaliações', icon: DeFigmaOriginal},
+  { name: 'Docker', description: '29 Aulas • 4h 30min', badge1: '4.8', badge2: '1250 avaliações', icon: VsFileTypeDocker2},
+  { name: 'GitLab', description: '42 Aulas • 5h 20min', badge1: '4.7', badge2: '1020 avaliações', icon: DeGitlabOriginal},
+  { name: 'WebFlow', description: '64 Aulas • 10h 30min', badge1: '4.8', badge2: '1753 avaliações', icon: DeWebflowOriginal},
+  { name: 'Figma', description: '51 Aulas • 8h 20min', badge1: '4.9', badge2: '1598 avaliações', icon: DeFigmaOriginal},
+  
+]);
 const userStore = useUserStore()
 </script>
 
 <template>
-  <div class="flex-1 p-4 md:p-8">
+  <div class="flex-1 p-4 md:p-8 w-full">
     <SearchHeader title="Relatório" :icon="BsBarChartFill" @search="filter=>console.log('filter', filter)"/>
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
       <div>
@@ -119,21 +133,20 @@ const userStore = useUserStore()
     </div>
 
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h2 class="text-xl font-semibold pb-5 flex items-center space-x-2"><span class="bg-green-200 p-1 text-green-700 rounded-md "><TaBrandCashapp/></span><span>Total Movimentado</span></h2>
+      <h2 class="text-xl font-semibold pb-5 flex items-center space-x-2">
+        <span class="bg-green-200 p-1 text-green-700 rounded-md ">
+          <TaBrandCashapp/>
+      </span>
+      <span>Total Movimentado</span>
+      <PercentageUp :value="10"/>
+      </h2>
       <div class="min-h-[300px]">
         <Bar :data="chartData" :options="chartOptions" />
       </div>
     </div>
 
-    <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-xl font-semibold mb-4">Treinamentos Populares</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-        <PopularTrainingCard
-          v-for="training in popularTrainings"
-          :key="training.name"
-          v-bind="training"
-        />
+    <div class="w-full relative">
+      <PopularTrainingCard :items="items"/>
       </div>
-    </div>
   </div>
 </template>
