@@ -2,6 +2,13 @@
 import Sidebar from './components/Sidebar/Sidebar.vue'
 import Dashboard from './components/Dashboard/Dashboard.vue'
 import Header from './components/Header/HeaderUser.vue';
+import { useMenuStore } from './stores/menu';
+const menuStore = useMenuStore()
+const components = [
+  {
+    id:'relatorio', component:Dashboard
+  }
+]
 </script>
 
 <template>
@@ -12,7 +19,7 @@ import Header from './components/Header/HeaderUser.vue';
       <Sidebar />
    </div>
     <div class="md:w-[85%] w-full md:m-2 md:p-0 p-2 bg-white shadow-lg rounded-md"> 
-      <Dashboard />
+       <component :is="components.find(component=> component.id ===  menuStore.activeMenuItem)?.component"/>
     </div>
   </div>
 </template>

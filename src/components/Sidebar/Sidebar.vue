@@ -14,19 +14,20 @@ import {
 
 import { ref } from 'vue'
 import UserCard from './UserCard.vue'
+import SidebarItem from './SidebarItem.vue'
 
 
 const showSidebar = ref(false)
 
  const menuItems = [
-  { icon: AnFilledHome, text: 'Início',  },
-  { icon: HeFilledGroupDiscussionMeetingx3, text: 'Meus treinamentos' },
-  { icon: BsFileTextFill, text: 'Faturas' },
-  { icon: BsCreditCardFill, text: 'Assinaturas' },
-  { icon: BxLinkAlt, text: 'Integrações' },
-  { icon: BsBarChartFill, text: 'Relatório' , active: true},
-  { icon: BsEnvelopeFill, text: 'Templates' },
-  { icon: MdRoundContactSupport, text: 'Suporte' }
+  { icon: AnFilledHome, text: 'Início',  id:'inicio'},
+  { icon: HeFilledGroupDiscussionMeetingx3, text: 'Meus treinamentos' , id:'meusTreinamentos'},
+  { icon: BsFileTextFill, text: 'Faturas' , id:'faturas'},
+  { icon: BsCreditCardFill, text: 'Assinaturas' , id:'assinaturas' },
+  { icon: BxLinkAlt, text: 'Integrações', id:'integracoes' },
+  { icon: BsBarChartFill, text: 'Relatório' , id:'relatorio'},
+  { icon: BsEnvelopeFill, text: 'Templates', id:'templates'},
+  { icon: MdRoundContactSupport, text: 'Suporte', id:'suporte' }
 ]
 
 </script>
@@ -59,20 +60,9 @@ const showSidebar = ref(false)
 
     <nav class="flex-1">
       <ul class="space-y-2">
-        <li
-      v-for="item in menuItems"
-      :key="item.text"
-      :class="[
-        'flex items-center space-x-2 p-2 rounded hover:bg-green-300 cursor-pointer transition-all relative',
-        item.active
-          ? 'bg-green-200 text-green-600 font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-green-600 before:rounded-r'
-          : 'text-gray-700'
-      ]"
-    >
-      <component :is="item.icon" class="w-5 h-5" />
-      <span>{{ item.text }}</span>
-    </li>
-
+    <div v-for="item in menuItems">
+      <SidebarItem :text="item.text" :id="item.id!"  :icon="item.icon"/>
+    </div>
 
       </ul>
     </nav>
