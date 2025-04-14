@@ -4,7 +4,7 @@
         <div class="w-20 h-20 rounded-full border-4 border-emerald-500 overflow-hidden">
           <img
             src="https://i.pravatar.cc/100?img=3"
-            alt="Lucas Silva"
+            alt="Foto usuário"
             class="w-full h-full object-cover"
           />
         </div>

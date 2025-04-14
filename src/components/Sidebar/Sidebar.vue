@@ -8,7 +8,8 @@ import {
   BsBarChartFill,
   BsEnvelopeFill,
   MdRoundContactSupport,
-  MiSolidDoorExit
+  MiSolidDoorExit,
+  FeMenu
 } from '@kalimahapps/vue-icons'
 
 import { ref } from 'vue'
@@ -32,23 +33,28 @@ const showSidebar = ref(false)
 
 <template>
 <button
-  class="md:hidden absolute top-1 right-4 z-50 p-1 rounded"
-  :class="[showSidebar ? 'text-red-500': 'bg-green-600 text-white ']"
+  class="md:hidden absolute top-6 right-4 z-40 p-2 "
+  :class="[showSidebar ? 'hidden': 'text-green-600']"
   @click="showSidebar = !showSidebar"
 >
-  <span v-if="!showSidebar">☰</span>
-  <span v-else>✕</span>
+  <span v-if="!showSidebar"><FeMenu/></span>
 </button>
 
 
   <div
-  class="fixed top-0 right-0 h-full bg-white shadow-lg p-4 z-40 transition-transform transform md:translate-x-0"
+  class="fixed  top-0 right-0 h-full bg-white rounded-md shadow-lg p-4 z-50 transition-transform transform md:translate-x-0"
   :class="[
-    'w-64 flex flex-col',
+    'w-full flex flex-col',
     showSidebar ? 'translate-x-0' : 'translate-x-full',
     'md:relative md:translate-x-0 md:flex'
   ]"
 >
+    <button
+      class="md:hidden absolute top-1 right-4 z-50 p-2 text-red-700"
+      @click="showSidebar = !showSidebar"
+    >
+      <span >✕</span>
+    </button>
     <UserCard/>
 
     <nav class="flex-1">

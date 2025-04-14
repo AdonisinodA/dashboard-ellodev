@@ -5,7 +5,7 @@ import { MdSharpDarkMode , FaUser, MdRoundNotifications} from '@kalimahapps/vue-
 </script>
   
 <template>
-    <header class="flex items-center  bg-white shadow rounded-xl px-4 py-2 w-screen justify-between h-12">
+    <header class="flex items-center  bg-white shadow rounded-xl px-4 py-2 w-screen justify-between h-20">
       <div class=" items-center space-x-2 flex">
         <div class="bg-emerald-500 text-white p-1 rounded-md">
           <!-- icone improvisado da empresa-->
@@ -16,7 +16,7 @@ import { MdSharpDarkMode , FaUser, MdRoundNotifications} from '@kalimahapps/vue-
         <span class="font-bold text-sm">BS MEMBERS</span>
       </div>
   
-      <div class="flex items-center space-x-4 pr-24 ">
+      <div class="flex items-center space-x-4 pr-20 md:pr-4 ">
           <MdSharpDarkMode class="text-gray-600 hover:scale-110 hover:cursor-pointer"/>
   
           <FaUser class="text-gray-600 hover:scale-110 hover:cursor-pointer"/>

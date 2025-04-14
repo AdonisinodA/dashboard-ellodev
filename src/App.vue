@@ -6,9 +6,12 @@ import Header from './components/Header/HeaderUser.vue';
 
 <template>
   <Header/>
-  <div class="flex min-h-screen bg-gray-100 w-screen">
+  
+  <div class="flex min-h-screen bg-gray-200 w-full">
+    <div class="md:m-2 md:w-[15%]">
       <Sidebar />
-    <div class="md:w-[85vw] w-screen"> 
+   </div>
+    <div class="md:w-[85%] w-full md:m-2 md:p-0 p-2 bg-white shadow-lg rounded-md"> 
       <Dashboard />
     </div>
   </div>
