@@ -58,20 +58,21 @@ const showSidebar = ref(false)
     </button>
     <UserCard/>
 
-    <nav class="flex-1">
+    <nav class="flex-1 h-full">
       <ul class="space-y-2">
     <div v-for="item in menuItems">
       <SidebarItem :text="item.text" :id="item.id!"  :icon="item.icon"/>
     </div>
 
       </ul>
-    </nav>
 
-    <div class="pt-4">
+      <div class="pt-20">
       <button class="w-full p-2 text-red-500 hover:bg-red-200 rounded flex items-center">
         <MiSolidDoorExit class="w-5 h-5" />
         <span class="ml-2">Sair</span>
       </button>
     </div>
+    </nav>
+  
   </div>
 </template>

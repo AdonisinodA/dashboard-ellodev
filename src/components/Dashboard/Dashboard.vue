@@ -107,7 +107,7 @@ const userStore = useUserStore()
 </script>
 
 <template>
-  <div class="md:p-8">
+  <div>
     <SearchHeader title="Relatório" :icon="BsBarChartFill" @search="filter=>console.log('filter', filter)"/>
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
       <div>

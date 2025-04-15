@@ -16,12 +16,12 @@ import { MdSharpDarkMode , FaUser, MdRoundNotifications} from '@kalimahapps/vue-
         <span class="font-bold text-sm">BS MEMBERS</span>
       </div>
   
-      <div class="flex items-center space-x-4 pr-20 md:pr-4 ">
-          <MdSharpDarkMode class="text-gray-600 hover:scale-110 hover:cursor-pointer"/>
+      <div class="flex items-center space-x-4 pr-20 md:pr-4">
+          <MdSharpDarkMode class=" text-gray-600 hover:scale-110 hover:cursor-pointer"/>
   
-          <FaUser class="text-gray-600 hover:scale-110 hover:cursor-pointer"/>
+          <FaUser class="text-gray-600  hover:scale-110 hover:cursor-pointer"/>
   
-         <MdRoundNotifications class="text-gray-600 hover:scale-110 hover:cursor-pointer"/>
+         <MdRoundNotifications class="text-gray-600  hover:scale-110 hover:cursor-pointer"/>
       </div>
     </header>
   </template>

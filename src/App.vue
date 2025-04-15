@@ -15,11 +15,11 @@ const components = [
   <Header/>
   
   <div class="flex min-h-screen bg-gray-200 w-full">
-    <div class="md:m-2 md:w-[15%]">
+    <div class="md:m-2 h-auto">
       <Sidebar />
    </div>
-    <div class="md:w-[85%] w-full md:m-2 md:p-0 p-2 bg-white shadow-lg rounded-md"> 
-       <component :is="components.find(component=> component.id ===  menuStore.activeMenuItem)?.component"/>
+    <div class="md:min-w-[85%] w-full md:m-2 bg-white shadow-lg rounded-md"> 
+       <component class="md:p-4" :is="components.find(component=> component.id ===  menuStore.activeMenuItem)?.component"/>
     </div>
   </div>
 </template>

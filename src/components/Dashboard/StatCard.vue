@@ -1,20 +1,21 @@
 <template>
     <div class="bg-white p-6 rounded-lg shadow">
-      <div class="flex justify-between items-center">
         <div>
-          <div class="flex justify-between space-x-2 items-center">
+          <div class="flex flex-col space-x-2 items-start">
+           <div class="flex space-x-2">
             <p class="text-gray-600">{{ label }}</p>
-            <span class="bg-green-200 p-2 rounded-lg">
+            <span class="bg-green-200 p-1 rounded-lg">
               <component :is="icon" class="text-green-600"/>
             </span>
+           </div>
+           <div class="flex space-x-2">
+             <p class="text-2xl font-bold text-gray-600">{{ value }}</p>
+             <PercentageUp :value="Number(increase)"/>
+            </div>
           </div>
-          <p class="text-2xl font-bold">{{ value }}</p>
-        
-
+          
         </div>
-        <PercentageUp :value="Number(increase)"/>
       </div>
-    </div>
   </template>
   
   <script setup lang="ts">
