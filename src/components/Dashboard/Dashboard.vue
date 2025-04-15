@@ -145,8 +145,8 @@ const userStore = useUserStore()
       <span>Total Movimentado</span>
       <PercentageUp :value="10"/>
       </h2>
-      <div class="min-h-[300px]">
-        <Bar :data="chartData" :options="chartOptions" />
+      <div class="h-96 ">
+        <Bar :data="chartData"  :options="chartOptions" />
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white p-6 rounded-lg shadow">
+    <div class="bg-white md:p-6 py-2 rounded-lg shadow">
         <div>
           <div class="flex flex-col space-x-2 items-start">
            <div class="flex space-x-2">
