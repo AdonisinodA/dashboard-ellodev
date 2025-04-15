@@ -14,11 +14,11 @@ const components = [
 <template>
   <Header/>
   
-  <div class="flex min-h-screen bg-gray-200 w-full">
-    <div class="md:m-2 h-auto">
+  <div class="flex min-h-screen bg-gray-100 w-full">
+    <div class="md:m-2 h-auto ">
       <Sidebar />
    </div>
-    <div class="md:min-w-[85%] w-full md:m-2 bg-white shadow-lg rounded-md"> 
+    <div class="md:min-w-[50%] w-full  md:m-2 bg-white shadow-lg rounded-md "> 
        <component class="md:p-4 p-2" :is="components.find(component=> component.id ===  menuStore.activeMenuItem)?.component"/>
     </div>
   </div>

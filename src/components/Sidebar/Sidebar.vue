@@ -34,11 +34,11 @@ const showSidebar = ref(false)
 
 <template>
 <button
-  class="md:hidden absolute top-6 right-4 z-40 p-2 "
+  class="md:hidden absolute top-4 right-4 z-40 p-2 "
   :class="[showSidebar ? 'hidden': 'text-green-600']"
   @click="showSidebar = !showSidebar"
 >
-  <span v-if="!showSidebar"><FeMenu/></span>
+  <FeMenu class="size-7"/>
 </button>
 
 
@@ -51,14 +51,15 @@ const showSidebar = ref(false)
   ]"
 >
     <button
-      class="md:hidden absolute top-1 right-4 z-50 p-2 text-red-700"
+      class="md:hidden absolute top-1 right-4  
+      text-2xl z-50 p-2 text-red-700"
       @click="showSidebar = !showSidebar"
     >
       <span >✕</span>
     </button>
     <UserCard/>
 
-    <nav class="flex-1 h-full">
+    <nav class="flex-1 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-green-200 scrollbar-track-white">
       <ul class="space-y-2">
     <div v-for="item in menuItems">
       <SidebarItem :text="item.text" :id="item.id!"  :icon="item.icon"/>

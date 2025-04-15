@@ -5,8 +5,8 @@ import { MdSharpDarkMode , FaUser, MdRoundNotifications} from '@kalimahapps/vue-
 </script>
   
 <template>
-    <header class="flex items-center  bg-white shadow rounded-xl px-4 py-2 w-screen justify-between h-20">
-      <div class=" items-center space-x-2 flex">
+    <header class="flex items-center  bg-white shadow rounded-xl px-4 py-2  h-20">
+      <div class=" items-center space-x-2 flex w-full ">
         <div class="bg-emerald-500 text-white p-1 rounded-md">
           <!-- icone improvisado da empresa-->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

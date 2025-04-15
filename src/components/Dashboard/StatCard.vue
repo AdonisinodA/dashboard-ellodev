@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white md:p-6 py-2 rounded-lg shadow">
+    <div class="bg-white md:p-6 py-2 rounded-lg ">
         <div>
           <div class="flex flex-col space-x-2 items-start">
-           <div class="flex space-x-2">
+           <div class="flex space-x-2 p-1">
             <p class="text-gray-600">{{ label }}</p>
             <span class="bg-green-200 p-1 rounded-lg">
               <component :is="icon" class="text-green-600"/>
